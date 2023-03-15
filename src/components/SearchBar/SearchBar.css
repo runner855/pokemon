@@ -1,0 +1,21 @@
+.SearchBar_container {
+  margin-top: 2em;
+}
+
+input {
+  border-radius: 2em;
+  height: 2.9em;
+  padding: 1em;
+  width: 20%;
+}
+
+::placeholder {
+  color: black;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 960px) {
+  input {
+    width: 100%;
+  }
+}
