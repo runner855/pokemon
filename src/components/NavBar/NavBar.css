@@ -86,7 +86,7 @@
   display: none;
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 760px) {
   .NavbarItems {
     position: relative;
   }
@@ -159,10 +159,8 @@
 }
 
 .avatar {
-  margin: 0.2em;
-  height: 2.2em;
-  border-radius: 40px;
-  width: 70%;
+  margin: 0.1em;
+  height: 40px;
 }
 
 .avatar:hover {

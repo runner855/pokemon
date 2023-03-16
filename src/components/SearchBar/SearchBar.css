@@ -1,5 +1,6 @@
 .SearchBar_container {
   margin-top: 2em;
+  text-align: center;
 }
 
 input {
@@ -16,6 +17,6 @@ input {
 
 @media screen and (max-width: 960px) {
   input {
-    width: 100%;
+    width: 80%;
   }
 }

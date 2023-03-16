@@ -18,4 +18,103 @@
   padding-top: 2em;
   font-size: 1.6em;
   width: 100%;
+  text-align: center;
+}
+
+.cont {
+  margin-top: 2em;
+  text-align: center;
+}
+
+.filters_container {
+  /* display: grid;
+  place-items: center; */
+  /* margin: 2em;
+  padding: 20px;
+  place-items: center; */
+  /* inline-block hack */
+  font-size: 0;
+  text-align: center;
+  margin: 40px;
+}
+
+.filter_element {
+  /* border: solid 0.1em black;
+  width: 15%;
+  height: 50px;
+  text-align: center;
+  border-radius: 0.4em;
+  margin: 0.2em;
+  display: grid;
+  place-items: center;
+  
+  width: 20%;
+  float: left;
+  color: rgb(10, 9, 9);
+  font-weight: 700; */
+  /* background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700524090.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 50%;
+  float: left;
+  padding: 20px;
+  border: 0.1em solid #000;
+  margin: 0.5em;
+  text-align: center;
+  font-weight: 700;
+  display: grid;
+  place-items: center;
+  border-radius: 0.4em; */
+  /* width: 50%;
+  float: left;
+  border: 2px solid red;
+  text-align: center;
+  margin: 0.4em; */
+  width: 29%;
+  height: 4em;
+  margin: 20px;
+  background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700524090.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: inline-block;
+  font-size: medium;
+  text-align: center;
+  margin: 2em;
+  vertical-align: middle;
+  line-height: 60px;
+  border-radius: 0.4em;
+  border: #000 solid 0.2em;
+  font-weight: 700;
+}
+.filter_element:hover {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 760px) {
+  .filters_container {
+    font-size: 0;
+    text-align: center;
+    margin: 40px;
+  }
+
+  .filter_element {
+    width: 32%;
+    height: 4em;
+    margin: 20px;
+    background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700524090.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: inline-block;
+    font-size: medium;
+    text-align: center;
+    margin: 1em;
+    vertical-align: middle;
+    line-height: 60px;
+    border-radius: 0.4em;
+    border: #000 solid 0.2em;
+    font-weight: 700;
+  }
 }

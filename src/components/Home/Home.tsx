@@ -3,7 +3,9 @@ import "../Home/Home.css";
 import { HEADER_LABEL } from "../../Constants/Dictionary";
 import { SearchBar } from "../SearchBar/SearchBar";
 import apiCall from "../../API/apiCall";
-import { PokedexProps } from "../../Types/appTypes";
+import { AppUrls, PokedexProps } from "../../Types/appTypes";
+import { FiltersArray } from "../../Utilities/Utility";
+import { Card, Col, Row } from "antd";
 
 export const Home = () => {
   const [pokeData, setPokeData] = useState<PokedexProps[] | undefined>();
@@ -17,7 +19,30 @@ export const Home = () => {
       <div className="title">{HEADER_LABEL}</div>
 
       <SearchBar />
-      <ul></ul>
+      {/* <div className="cont">
+        <Row gutter={16}>
+          {FiltersArray &&
+            FiltersArray.map((item, index) => {
+              return (
+                <Col span={10}>
+                  <Card bordered={false} style={{ margin: 2 }}>
+                    {item.filter}
+                  </Card>
+                </Col>
+              );
+            })}
+        </Row>
+      </div> */}
+      <div className="filters_container">
+        {FiltersArray &&
+          FiltersArray.map((item, index) => {
+            return (
+              <div key={index} className="filter_element">
+                {item.filter}
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import { AppUrls } from "../Types/appTypes";
+import { TYPE_CHARTS_LABEL } from "../Constants/Dictionary";
 import {
   ABILITIES_LABEL,
   ITEMS_LABEL,
@@ -28,4 +29,13 @@ export const NavBarLinks = [
     link_label: LOCATIONS_LABEL,
     to: AppUrls.LOCATIONS,
   },
+];
+
+export const FiltersArray = [
+  { filter: POKEDEX_LABEL },
+  { filter: MOVES_LABEL },
+  { filter: ABILITIES_LABEL },
+  { filter: ITEMS_LABEL },
+  { filter: LOCATIONS_LABEL },
+  { filter: TYPE_CHARTS_LABEL },
 ];
