@@ -11,7 +11,7 @@ export const MainContainer = () => {
     apiCall
       .get(`${params.page}`, {})
       .then((res) => setPokeData(res.data.results));
-  }, []);
+  }, [params]);
 
   console.log("here", pokeData);
 

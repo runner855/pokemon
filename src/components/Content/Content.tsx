@@ -11,7 +11,6 @@ type DataProps = {
 export const Content = ({ pokeData }: DataProps) => {
   const navigate = useNavigate();
   const params = useParams();
-  console.log(params);
   return (
     <div className="pokemon_container">
       {pokeData &&
@@ -19,6 +18,12 @@ export const Content = ({ pokeData }: DataProps) => {
           return (
             <Card
               style={{ width: 250, margin: 20 }}
+              cover={
+                <img
+                  alt="example"
+                  src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                />
+              }
               hoverable
               key={index}
               onClick={() => navigate(`${item.name}`)}
