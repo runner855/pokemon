@@ -5,10 +5,10 @@
 }
 
 .navbar {
-  background: transparent;
+  background: white;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 90px;
+  height: 70px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +23,7 @@
 .navbar-container {
   display: flex;
   justify-content: space-between;
-  height: 80px;
+  height: 70px;
   margin-right: 2em;
 }
 
@@ -145,7 +145,7 @@
 
   .menu-icon {
     display: block;
-    position: absolute;
+    position: fixed;
     top: 0;
     right: 0;
     transform: translate(-100%, 60%);
@@ -160,7 +160,7 @@
 
 .avatar {
   margin: 0.1em;
-  height: 40px;
+  height: 45px;
 }
 
 .avatar:hover {

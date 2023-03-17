@@ -5,4 +5,4 @@ export const MOVES_LABEL = "Moves";
 export const ABILITIES_LABEL = "Abilities";
 export const ITEMS_LABEL = "Items";
 export const LOCATIONS_LABEL = "Locations";
-export const TYPE_CHARTS_LABEL = " Type Charts";
+export const TYPE_CHARTS_LABEL = " Types";

@@ -8,10 +8,13 @@ export const MainContainer = () => {
   const params = useParams();
   const [pokeData, setPokeData] = useState<PokedexProps[] | undefined>();
   useEffect(() => {
-    apiCall.get(`${params.page}`, {}).then((res) => setPokeData(res.data));
-  }, [params]);
+    apiCall
+      .get(`${params.page}`, {})
+      .then((res) => setPokeData(res.data.results));
+  }, []);
 
-  console.log(pokeData);
+  console.log("here", pokeData);
+
   return (
     <div className="main_container">
       <Content pokeData={pokeData} />

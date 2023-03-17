@@ -29,6 +29,10 @@ export const NavBarLinks = [
     link_label: LOCATIONS_LABEL,
     to: AppUrls.LOCATIONS,
   },
+  {
+    link_label: TYPE_CHARTS_LABEL,
+    to: AppUrls.TYPE_CHARTS,
+  },
 ];
 
 export const FiltersArray = [

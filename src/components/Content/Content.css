@@ -1,0 +1,21 @@
+.pokemon_container {
+  background-color: white;
+  background-image: linear-gradient(
+      rgba(235, 243, 235, 0.7),
+      rgb(247, 242, 242)
+    ),
+    url("https://www.coliseugeek.com.br/wp-content/uploads/2023/01/6776c-clickwallpapers-pokemon-4k-img2-scaled-1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: auto;
+  width: 100%;
+}
+
+.pokemon_container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+}
