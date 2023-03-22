@@ -1,0 +1,56 @@
+.card,
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 4em;
+  width: 100%;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.btn {
+  margin: 0.2em;
+  padding: 0.1em;
+  width: 4em;
+}
+
+@media screen and (max-width: 760px) {
+  .card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4em;
+  }
+}
+
+.name {
+  text-align: left;
+  font-weight: 700;
+  font-size: 2em;
+  margin-bottom: 0.2em;
+}
+
+.pokemon_image {
+  height: 14em;
+  text-align: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.tabs {
+  background-color: white;
+  width: 370px;
+  padding: 6px;
+
+  border-radius: 1em 1em;
+  height: 25em;
+}

@@ -1,11 +1,11 @@
 import * as React from "react";
-import { PokedexProps } from "../../Types/appTypes";
+import { PokemonGroupProps } from "../../Types/appTypes";
 import { Card } from "antd";
 import "../Content/Content.css";
 import { useNavigate, useParams } from "react-router-dom";
 
 type DataProps = {
-  pokeData: PokedexProps[] | undefined;
+  pokeData: PokemonGroupProps[] | undefined;
 };
 
 export const Content = ({ pokeData }: DataProps) => {
@@ -21,7 +21,9 @@ export const Content = ({ pokeData }: DataProps) => {
               cover={
                 <img
                   alt="example"
-                  src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                  src={
+                    "https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
+                  }
                 />
               }
               hoverable

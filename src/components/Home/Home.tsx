@@ -3,12 +3,12 @@ import "../Home/Home.css";
 import { HEADER_LABEL } from "../../Constants/Dictionary";
 import { SearchBar } from "../SearchBar/SearchBar";
 import apiCall from "../../API/apiCall";
-import { PokedexProps } from "../../Types/appTypes";
+import { PokemonGroupProps } from "../../Types/appTypes";
 import { FiltersArray, NavBarLinks } from "../../Utilities/Utility";
 import { useNavigate, useParams } from "react-router-dom";
 
 export const Home = () => {
-  const [pokeData, setPokeData] = useState<PokedexProps[] | undefined>();
+  const [pokeData, setPokeData] = useState<PokemonGroupProps[] | undefined>();
   const params = useParams();
   const navigate = useNavigate();
   console.log(params.page);
