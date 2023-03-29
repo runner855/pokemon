@@ -44,6 +44,7 @@ export const Home = () => {
             );
           })}
       </div>
+
       <div className="filter_pokemon">
         {searchData &&
           searchData
@@ -65,6 +66,14 @@ export const Home = () => {
                 </ul>
               );
             })}
+      </div>
+      <div className="pokemon_news_container">
+        <div className="pokemon_news_header">
+          <ul>
+            <li className="Pokemon_news">Pokemon News</li>
+            <li className="Pokemon_viewall">View All</li>
+          </ul>
+        </div>
       </div>
     </div>
   );

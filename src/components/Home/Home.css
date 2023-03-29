@@ -7,6 +7,7 @@
   width: 100%;
   height: 910px;
   position: absolute;
+  border-radius: 0em 0em 2em 2em;
 }
 
 .title {
@@ -26,7 +27,7 @@
 .filters_container {
   font-size: 0;
   text-align: center;
-  margin: 40px;
+  border-radius: 0px 0px 15px 15px;
 }
 
 .filter_element {
@@ -117,7 +118,7 @@
   .filters_container {
     font-size: 0;
     text-align: center;
-    margin: 40px;
+    border-radius: 0px 0px 15px 15px;
   }
 
   .filter_element {
@@ -140,6 +141,8 @@
   flex-wrap: wrap;
   align-content: center;
   justify-content: space-around;
+  background-color: darkgrey;
+  border-radius: 1em 1em 0em 0em;
 }
 
 li {
@@ -148,5 +151,32 @@ li {
 
 .pokemon_name_result {
   font-weight: 600;
-  font-size: 4.3em;
+  font-size: 3.4em;
+  margin: 0.2em;
+}
+
+.pokemon_name_result:hover {
+  color: whitesmoke;
+  cursor: pointer;
+  border: solid rgb(15, 15, 14) 2px;
+  background-color: rgba(25, 141, 100, 0.5);
+  border-radius: 1em;
+  padding: 0.5rem;
+}
+
+.pokemon_news_header ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-top: 2em;
+}
+
+.Pokemon_news {
+  font-weight: 800;
+  font-size: 2em;
+}
+
+.Pokemon_viewall {
+  font-weight: 500;
+  font-size: 1.6em;
 }

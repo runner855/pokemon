@@ -49,3 +49,5 @@ export const FiltersArray = [
   { filter: LOCATIONS_LABEL },
   { filter: TYPE_CHARTS_LABEL },
 ];
+
+export const PokemonNews = [{ label: "Pokemon News" }, { label: "View All" }];
