@@ -12,26 +12,32 @@ export const NavBarLinks = [
   {
     link_label: POKEDEX_LABEL,
     to: AppUrls.POKEDEX,
+    color: "green",
   },
   {
     link_label: MOVES_LABEL,
     to: AppUrls.MOVES,
+    color: "red",
   },
   {
     link_label: ABILITIES_LABEL,
     to: AppUrls.ABILITIES,
+    color: "blue",
   },
   {
     link_label: ITEMS_LABEL,
     to: AppUrls.ITEMS,
+    color: "yellow",
   },
   {
     link_label: LOCATIONS_LABEL,
     to: AppUrls.LOCATIONS,
+    color: "purple",
   },
   {
     link_label: TYPE_CHARTS_LABEL,
     to: AppUrls.TYPE_CHARTS,
+    color: "brown",
   },
 ];
 

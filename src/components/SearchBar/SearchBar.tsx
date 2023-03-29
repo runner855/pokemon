@@ -1,10 +1,20 @@
-import * as React from "react";
+import React from "react";
 import "../SearchBar/SearchBar.css";
 
-export const SearchBar = () => {
+type PokemonSearchProps = {
+  value: string;
+  setValue: (value: string) => void;
+};
+
+export const SearchBar = ({ value, setValue }: PokemonSearchProps) => {
   return (
     <div className="SearchBar_container">
-      <input type="search" placeholder="Search Pokemon,Moves,Ability etc" />
+      <input
+        type="search"
+        placeholder="Search Pokemon..."
+        onChange={(e) => setValue(e.target.value)}
+        value={value}
+      />
     </div>
   );
 };

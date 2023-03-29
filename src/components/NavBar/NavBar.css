@@ -5,7 +5,6 @@
 }
 
 .navbar {
-  background: white;
   background-repeat: no-repeat;
   background-size: cover;
   height: 70px;
@@ -17,7 +16,6 @@
   top: 0;
   z-index: 999;
   width: 100%;
-  border-bottom: 0.3em solid black;
 }
 
 .navbar-container {
@@ -83,7 +81,6 @@
 }
 
 .menu-icon {
-  display: none;
 }
 
 @media screen and (max-width: 760px) {
@@ -134,15 +131,6 @@
     width: 100%;
   }
 
-  .navbar-logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(25%, 50%);
-    height: 2em;
-    width: 100%;
-  }
-
   .menu-icon {
     display: block;
     position: fixed;
@@ -152,19 +140,22 @@
     font-size: 1.8rem;
     cursor: pointer;
   }
+  .arrow-back svg {
+    color: #000 !important;
+    font-size: 1.8rem;
+  }
+  /* .navbar {
+    background-color: rgb(184, 230, 224);
+  } */
+}
+
+.arrow-back svg {
+  color: #000 !important;
+  font-size: 1.8rem;
 }
 
 .menu-icon svg {
   color: #000 !important;
-}
-
-.avatar {
-  margin: 0.1em;
-  height: 45px;
-}
-
-.avatar:hover {
-  cursor: pointer;
 }
 
 .navbar ul {
@@ -173,4 +164,49 @@
   list-style: none;
   margin-top: 1em;
   width: 100%;
+}
+
+.pokemon_logo {
+  height: 4em;
+  display: flex;
+  position: fixed;
+}
+
+.menu-icon {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: 0;
+  transform: translate(-100%, 60%);
+  font-size: 1.8rem;
+  cursor: pointer;
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlM45KDD6bQ7uZdPmIo9ptIspxcKcZ4kcuaA&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.menu_icon_container {
+  height: 20em;
+}
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: absolute;
+  top: 80px;
+  left: -100%;
+  opacity: 1;
+  transition: all 0.5s ease;
+  width: 100%;
+}
+
+.nav-menu.active {
+  background: whitesmoke;
+  left: 0;
+  opacity: 1;
+  transition: all 0.3s ease;
+  z-index: 1;
+  flex-direction: column;
 }

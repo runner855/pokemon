@@ -1,15 +1,12 @@
 .home_container {
   background-color: white;
-  background-image: linear-gradient(
-      rgba(235, 243, 235, 0.7),
-      rgb(247, 242, 242)
-    ),
-    url("https://www.coliseugeek.com.br/wp-content/uploads/2023/01/6776c-clickwallpapers-pokemon-4k-img2-scaled-1.jpg");
+
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   width: 100%;
   height: 910px;
+  position: absolute;
 }
 
 .title {
@@ -35,10 +32,7 @@
 .filter_element {
   width: 23%;
   height: 4em;
-  background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700524090.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+
   display: inline-block;
   font-size: medium;
   text-align: center;
@@ -46,11 +40,77 @@
   vertical-align: middle;
   line-height: 60px;
   border-radius: 0.4em;
-  border: #000 solid 0.2em;
   font-weight: 700;
+  color: whitesmoke;
 }
 .filter_element:hover {
   cursor: pointer;
+}
+
+.filter_element.yellow {
+  background: linear-gradient(
+      rgba(218, 176, 8, 0.5) 100%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlM45KDD6bQ7uZdPmIo9ptIspxcKcZ4kcuaA&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.filter_element.red {
+  background: linear-gradient(
+      rgba(182, 48, 48, 0.5) 100%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlM45KDD6bQ7uZdPmIo9ptIspxcKcZ4kcuaA&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.filter_element.green {
+  background: linear-gradient(
+      rgba(25, 141, 100, 0.5) 100%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlM45KDD6bQ7uZdPmIo9ptIspxcKcZ4kcuaA&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.filter_element.blue {
+  background: linear-gradient(
+      rgba(61, 148, 199, 0.5) 100%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlM45KDD6bQ7uZdPmIo9ptIspxcKcZ4kcuaA&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.filter_element.brown {
+  background: linear-gradient(
+      rgba(42, 4, 1, 0.788) 100%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlM45KDD6bQ7uZdPmIo9ptIspxcKcZ4kcuaA&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+}
+
+.filter_element.purple {
+  background: linear-gradient(
+      rgba(36, 10, 36, 0.788) 100%,
+      rgba(0, 0, 0, 0.5) 100%
+    ),
+    url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlM45KDD6bQ7uZdPmIo9ptIspxcKcZ4kcuaA&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
 }
 
 @media screen and (max-width: 760px) {
@@ -64,17 +124,29 @@
     width: 32%;
     height: 4em;
     margin: 20px;
-    background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700524090.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
     display: inline-block;
     font-size: medium;
     text-align: center;
     vertical-align: middle;
     line-height: 60px;
     border-radius: 0.4em;
-    border: #000 solid 0.2em;
     font-weight: 700;
   }
+}
+
+.filter_pokemon {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+}
+
+li {
+  list-style-type: none;
+}
+
+.pokemon_name_result {
+  font-weight: 600;
+  font-size: 4.3em;
 }

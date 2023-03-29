@@ -23,8 +23,8 @@
   height: 4em;
   background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700524090.jpg");
   background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
+  background-position: right;
   display: inline-block;
   font-size: medium;
   text-align: center;
@@ -50,7 +50,7 @@
     width: 32%;
     height: 4em;
     margin: 20px;
-    background-image: url("https://wallpaper-mania.com/wp-content/uploads/2018/09/High_resolution_wallpaper_background_ID_77700524090.jpg");
+
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
