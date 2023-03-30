@@ -1,11 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "../Home/Home.css";
-import { HEADER_LABEL } from "../../Constants/Dictionary";
+import {
+  HEADER_LABEL,
+  POKEMON_NEWS_LABEL,
+  POKEMON_NEWS_VIEWALL_LABEL,
+} from "../../Constants/Dictionary";
 import { SearchBar } from "../SearchBar/SearchBar";
-import { NavBarLinks } from "../../Utilities/Utility";
+import { NavBarLinks, PokemonNews } from "../../Utilities/Utility";
 import { useNavigate, useParams } from "react-router-dom";
 import apiCall from "../../API/apiCall";
 import { PokemonGroupProps } from "../../Types/appTypes";
+import newsImage1 from "../../Images/regionals-169.jpg";
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -70,10 +75,29 @@ export const Home = () => {
       <div className="pokemon_news_container">
         <div className="pokemon_news_header">
           <ul>
-            <li className="Pokemon_news">Pokemon News</li>
-            <li className="Pokemon_viewall">View All</li>
+            <li className="Pokemon_news">{POKEMON_NEWS_LABEL}</li>
+            <li className="Pokemon_viewall">{POKEMON_NEWS_VIEWALL_LABEL}</li>
           </ul>
         </div>
+        {PokemonNews &&
+          PokemonNews.map((item, index) => {
+            return (
+              <div className="card_container" key={index}>
+                <div className="text_content">
+                  <div className="article_date">{item.date}</div>
+
+                  <div className="title_news">{item.title}</div>
+                </div>
+                <div className="image_container">
+                  <img
+                    className="article_image"
+                    src={item.image}
+                    alt="article_image"
+                  />
+                </div>
+              </div>
+            );
+          })}
       </div>
     </div>
   );

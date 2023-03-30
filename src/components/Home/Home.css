@@ -141,8 +141,7 @@
   flex-wrap: wrap;
   align-content: center;
   justify-content: space-around;
-  background-color: darkgrey;
-  border-radius: 1em 1em 0em 0em;
+  border-radius: 1em;
 }
 
 li {
@@ -164,6 +163,11 @@ li {
   padding: 0.5rem;
 }
 
+.pokemon_news_container {
+  background-color: rgb(233, 229, 229);
+  border-radius: 1em;
+}
+
 .pokemon_news_header ul {
   display: flex;
   flex-direction: row;
@@ -174,9 +178,80 @@ li {
 .Pokemon_news {
   font-weight: 800;
   font-size: 2em;
+  margin-top: 1em;
 }
 
 .Pokemon_viewall {
   font-weight: 500;
   font-size: 1.6em;
+  margin-top: 2em;
+}
+
+.article_image {
+  width: 19em;
+  height: auto;
+  border-radius: 1em;
+}
+
+.card_container {
+  margin: 3em;
+  display: flex;
+  flex-direction: row;
+}
+
+.title_news {
+  font-weight: 700;
+  font-size: 1em;
+  margin-bottom: 0.2em;
+  width: 16em;
+}
+
+.article_content {
+  font-size: 1.2em;
+  overflow: hidden;
+  line-height: 1rem;
+  max-height: 8rem;
+  -webkit-box-orient: vertical;
+  display: block;
+  display: -webkit-box;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  width: 20em;
+}
+
+.image_container {
+  margin-left: 1em;
+}
+
+@media only screen and (max-width: 900px) {
+  .card_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .article_image {
+    width: 8em;
+    height: auto;
+    border-radius: 1em;
+    margin-left: 6em;
+  }
+  .title_news {
+    width: 10em;
+    margin-right: 6em;
+  }
+
+  .Pokemon_viewall {
+    margin-top: 1.4em;
+  }
+}
+
+.card_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.article_date {
+  color: red;
 }
