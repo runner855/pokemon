@@ -22,7 +22,12 @@ export interface PokemonAbilitiesProps {
   slot: number;
 }
 
+export interface PokemonResponse {
+  data: SinglePokemonDetailsProps;
+}
+
 export interface SinglePokemonDetailsProps {
+  url: any;
   abilities: PokemonAbilitiesProps[];
   base_experience: number;
   forms: PokemonGroupProps[];

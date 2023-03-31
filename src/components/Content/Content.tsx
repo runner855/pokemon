@@ -3,56 +3,70 @@ import {
   SinglePokemonDetailsProps,
   PokemonGroupProps,
 } from "../../Types/appTypes";
-import { Card } from "antd";
+import { Card, Tag } from "antd";
 import "../Content/Content.css";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import apiCall from "../../API/apiCall";
+import { IoMdReturnLeft } from "react-icons/io";
+import { PokemonResponse } from "../../Types/appTypes";
 
 type DataProps = {
-  pokeData: PokemonGroupProps[] | undefined;
+  pokeData: PokemonResponse[] | undefined;
 };
 
 export const Content = ({ pokeData }: DataProps) => {
   const [singlePokemon, setSinglePokemon] = useState<
-    SinglePokemonDetailsProps | undefined
+    PokemonGroupProps[] | undefined
   >();
-  const [data, setData] = useState<SinglePokemonDetailsProps | undefined>();
+  const [data, setData] = useState<PokemonResponse[] | undefined>();
   const navigate = useNavigate();
   const params = useParams();
-
-  useEffect(() => {
-    pokeData &&
-      pokeData.map((item, index) =>
-        axios.get(`${item.url}`, {}).then((res) => setData(res.data))
-      );
-  }, [pokeData]);
-
-  console.log(data);
 
   return (
     <div className="pokemon_container">
       {pokeData &&
         pokeData.map((item, index) => {
           return (
-            <Card
-              style={{ width: 250, margin: 20 }}
-              cover={
-                <img
-                  className="pokemon_img"
-                  alt="example"
-                  src={data && data.sprites.other.dream_world.front_default}
-                />
-              }
-              hoverable
+            <div
               key={index}
-              onClick={() => navigate(`${item.name}`)}
+              className={`card_container ${item.data.types.map((item, index) =>
+                item.type.name === "grass"
+                  ? "green"
+                  : item.type.name === "fire"
+                  ? "red"
+                  : item.type.name === "water"
+                  ? "blue"
+                  : item.type.name === "bug"
+                  ? "yellow"
+                  : "purple"
+              )}`}
+              onClick={() => navigate(`${item.data.name}`)}
             >
-              {`${item.name.charAt(0).toUpperCase()}${item.name.slice(
-                1
-              )}${" "}`}
-              <div>{item.url}</div>
-            </Card>
+              <div className="image_container">
+                <img
+                  className="character_image"
+                  src={item.data.sprites.other.dream_world.front_default}
+                  alt={"character_image"}
+                />
+              </div>
+              <div className="character_details">
+                <div className="character_name">{`${item.data.name
+                  .charAt(0)
+                  .toUpperCase()}${item.data.name.slice(1)}`}</div>
+                <div className="tags">
+                  {item.data.types.map((item, index) => {
+                    return (
+                      <Tag color="lime" className="btn" key={index}>
+                        {`${item.type.name
+                          .charAt(0)
+                          .toUpperCase()}${item.type.name.slice(1)}${" "}`}
+                      </Tag>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
           );
         })}
     </div>

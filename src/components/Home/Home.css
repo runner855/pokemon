@@ -187,14 +187,18 @@ li {
   margin-top: 2em;
 }
 
+a {
+  text-decoration: none;
+  color: black !important;
+}
+
 .article_image {
-  width: 19em;
+  width: 14em;
   height: auto;
   border-radius: 1em;
 }
 
 .card_container {
-  margin: 3em;
   display: flex;
   flex-direction: row;
 }
@@ -203,6 +207,7 @@ li {
   font-weight: 700;
   font-size: 1em;
   margin-bottom: 0.2em;
+  margin-right: 12em;
   width: 16em;
 }
 

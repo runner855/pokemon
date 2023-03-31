@@ -21,11 +21,6 @@ export const CardDetails = () => {
       .then((res) => setPokemonDetails(res.data));
   }, [params]);
 
-  const abilityUrl = pokemonDetails && pokemonDetails.abilities;
-  console.log(typeof abilityUrl);
-
-  console.log("details", pokemonDetails);
-
   return (
     <div className="card">
       <div className="header">

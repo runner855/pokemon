@@ -7,7 +7,7 @@ import {
 } from "../../Constants/Dictionary";
 import { SearchBar } from "../SearchBar/SearchBar";
 import { NavBarLinks, PokemonNews } from "../../Utilities/Utility";
-import { useNavigate, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import apiCall from "../../API/apiCall";
 import { PokemonGroupProps } from "../../Types/appTypes";
 import newsImage1 from "../../Images/regionals-169.jpg";
@@ -76,7 +76,11 @@ export const Home = () => {
         <div className="pokemon_news_header">
           <ul>
             <li className="Pokemon_news">{POKEMON_NEWS_LABEL}</li>
-            <li className="Pokemon_viewall">{POKEMON_NEWS_VIEWALL_LABEL}</li>
+            <li className="Pokemon_viewall">
+              <NavLink to="https://www.pokemon.com/us/pokemon-news">
+                {POKEMON_NEWS_VIEWALL_LABEL}
+              </NavLink>
+            </li>
           </ul>
         </div>
         {PokemonNews &&
