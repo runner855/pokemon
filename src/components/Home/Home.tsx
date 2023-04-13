@@ -86,7 +86,7 @@ export const Home = () => {
         {PokemonNews &&
           PokemonNews.map((item, index) => {
             return (
-              <div className="card_container" key={index}>
+              <div className="news_card_container" key={index}>
                 <div className="text_content">
                   <div className="article_date">{item.date}</div>
 

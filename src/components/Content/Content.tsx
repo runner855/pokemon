@@ -1,13 +1,9 @@
 import React, { useEffect, useState } from "react";
-import {
-  SinglePokemonDetailsProps,
-  PokemonGroupProps,
-} from "../../Types/appTypes";
-import { Card, Tag } from "antd";
+
+import { Tag } from "antd";
 import "../Content/Content.css";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
-import apiCall from "../../API/apiCall";
+
 import { IoMdReturnLeft } from "react-icons/io";
 import { PokemonResponse } from "../../Types/appTypes";
 
@@ -16,10 +12,6 @@ type DataProps = {
 };
 
 export const Content = ({ pokeData }: DataProps) => {
-  const [singlePokemon, setSinglePokemon] = useState<
-    PokemonGroupProps[] | undefined
-  >();
-  const [data, setData] = useState<PokemonResponse[] | undefined>();
   const navigate = useNavigate();
   const params = useParams();
 
@@ -30,16 +22,16 @@ export const Content = ({ pokeData }: DataProps) => {
           return (
             <div
               key={index}
-              className={`card_container ${item.data.types.map((item, index) =>
-                item.type.name === "grass"
-                  ? "green"
-                  : item.type.name === "fire"
-                  ? "red"
-                  : item.type.name === "water"
-                  ? "blue"
-                  : item.type.name === "bug"
-                  ? "yellow"
-                  : "purple"
+              className={`card_container ${item.data.types.map(
+                (item, index) => {
+                  return item.type.name === "grass"
+                    ? "green"
+                    : item.type.name === "fire"
+                    ? "red"
+                    : item.type.name === "water"
+                    ? "blue"
+                    : "purple";
+                }
               )}`}
               onClick={() => navigate(`${item.data.name}`)}
             >

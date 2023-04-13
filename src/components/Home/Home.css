@@ -166,6 +166,7 @@ li {
 .pokemon_news_container {
   background-color: rgb(233, 229, 229);
   border-radius: 1em;
+  height: 32em;
 }
 
 .pokemon_news_header ul {
@@ -185,6 +186,7 @@ li {
   font-weight: 500;
   font-size: 1.6em;
   margin-top: 2em;
+  margin-bottom: 1em;
 }
 
 a {
@@ -239,7 +241,6 @@ a {
     width: 8em;
     height: auto;
     border-radius: 1em;
-    margin-left: 6em;
   }
   .title_news {
     width: 10em;
@@ -251,7 +252,7 @@ a {
   }
 }
 
-.card_container {
+.news_card_container {
   display: flex;
   justify-content: center;
   align-items: center;

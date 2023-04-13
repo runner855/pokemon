@@ -28,8 +28,6 @@ export const MainContainer = () => {
       .then((res) => setPokeData(res));
   }, [params]);
 
-  console.log(pokeData);
-
   return (
     <div className="main_container">
       <Content pokeData={pokeData} />

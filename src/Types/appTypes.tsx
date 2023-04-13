@@ -37,7 +37,7 @@ export interface SinglePokemonDetailsProps {
   id: number;
   is_default: boolean;
   location_area_encounters: string;
-  moves: [];
+  moves: PokemonGroupProps[];
   name: string;
   order: number;
   past_types: [];
@@ -88,4 +88,77 @@ export interface HomeProps {
 export interface Official_ArtworkProps {
   front_default: string;
   front_shiny: string;
+}
+
+export interface PokemonAboutProps {
+  effect_changes: [];
+  effect_entries: EffectEntriesProps[];
+  flavor_text_entries: [];
+  generation: Object;
+  id: number;
+  is_main_series: boolean;
+  name: string;
+  names: NamesProps[];
+  pokemon: PokemonProps[];
+}
+
+export interface EffectEntriesProps {
+  effect: string;
+  language: PokemonGroupProps;
+  short_effect: string;
+}
+
+export interface NamesProps {
+  language: PokemonGroupProps;
+  name: string;
+}
+
+export interface PokemonProps {
+  is_hiddden: boolean;
+  pokemon: PokemonGroupProps;
+  slot: number;
+}
+
+export interface EggGroupProps {
+  id: number;
+  name: string;
+  names: EggGroupNamesProps[];
+  pokemon_species: PokemonGroupProps[];
+}
+
+export interface EggGroupNamesProps {
+  language: PokemonGroupProps;
+  name: string;
+}
+
+export interface PokemonGenderProps {
+  id: number;
+  name: string;
+  pokemon_species_details: [];
+  required_for_evolution: [];
+}
+
+export interface PokemonEvolutionChainProps {
+  id: number;
+  chain: PokemonChain;
+}
+
+export interface PokemonChain {
+  evolution_details: [];
+  evolves_to: EvolvesToProps[];
+  is_baby: boolean;
+  species: PokemonGroupProps;
+}
+
+export interface EvolvesToProps {
+  evolution_details: EvolutionDetailsProps;
+  evolves_to: [];
+  is_baby: boolean;
+  species: PokemonGroupProps;
+}
+
+export interface EvolutionDetailsProps {
+  min_level: number;
+  needs_overworld_rain: boolean;
+  trigger: PokemonGroupProps;
 }

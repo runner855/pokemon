@@ -22,8 +22,8 @@
 }
 
 .character_image {
-  width: 6em;
-  height: 10em;
+  width: 5em;
+  height: 7em;
   border-radius: 1em 0em 0em 1em;
 }
 
@@ -44,7 +44,6 @@
 .character_name {
   font-weight: 800;
   font-size: 1em;
-  margin-right: 0.6em;
   color: #000;
 }
 
