@@ -6,7 +6,6 @@ import {
   PokemonAboutProps,
   PokemonEvolutionChainProps,
   PokemonGenderProps,
-  PokemonGroupProps,
   SinglePokemonDetailsProps,
 } from "../../Types/appTypes";
 import "../CardDetails/CardDetails.css";
@@ -14,6 +13,7 @@ import { Tabs } from "antd";
 import { Tag } from "antd";
 import { GiMale } from "react-icons/gi";
 import { BiFemaleSign } from "react-icons/bi";
+import { StatsChart } from "../StatsChart/StatsChart";
 
 export const CardDetails = () => {
   const [pokemonDetails, setPokemonDetails] = useState<
@@ -27,6 +27,7 @@ export const CardDetails = () => {
   const [evolution, setEvolution] = useState<
     PokemonEvolutionChainProps | undefined
   >();
+  const StatData = pokemonDetails && pokemonDetails.stats;
 
   const params = useParams();
 
@@ -37,15 +38,13 @@ export const CardDetails = () => {
       .catch((err) => console.log(err));
   }, [params]);
 
-  let id = pokemonDetails && pokemonDetails.id;
-
   useEffect(() => {
     pokemonDetails &&
       apiCall
         .get(`ability/${pokemonDetails && pokemonDetails.id}`, {})
         .then((res) => setPokemonAbout(res.data))
         .catch((err) => console.log(err));
-  }, [id, pokemonDetails]);
+  }, [pokemonDetails]);
 
   useEffect(() => {
     pokemonDetails &&
@@ -55,15 +54,17 @@ export const CardDetails = () => {
   }, [pokemonDetails]);
 
   useEffect(() => {
-    params &&
-      apiCall.get(`gender/${params.id}`, {}).then((res) => setGender(res.data));
-  }, [params]);
+    pokemonDetails &&
+      apiCall
+        .get(`gender/${pokemonDetails.id}`, {})
+        .then((res) => setGender(res.data));
+  }, [pokemonDetails]);
 
   useEffect(() => {
     pokemonDetails &&
       apiCall
-        .get(`evolution-chain/${pokemonDetails && pokemonDetails.id}`, {})
-        .then((res) => console.log(res.data));
+        .get(`evolution-chain/${pokemonDetails.id}`, {})
+        .then((res) => console.log("here", res.data));
   }, [pokemonDetails]);
 
   return (
@@ -166,30 +167,21 @@ export const CardDetails = () => {
           {
             label: "Base Stats",
             key: "2",
-            children:
-              pokemonDetails &&
-              pokemonDetails.stats.map((item, index) => {
-                return (
-                  <ul key={index}>
-                    <li>
-                      {item.stat.name.toUpperCase()} : {item.base_stat}
-                    </li>
-                  </ul>
-                );
-              }),
+            children: StatData && <StatsChart StatData={StatData} />,
           },
           {
             label: "Evolution",
             key: "3",
-            children: "Evolution",
+            children: (
+              <div className="evolution_container">
+                <div className="evolution_header">Evolution Chain</div>
+              </div>
+            ),
           },
           {
             label: "Moves",
             key: "4",
-            children: `${
-              pokemonDetails &&
-              pokemonDetails.moves.map((item, index) => item.name)
-            }`,
+            children: "Moves",
           },
         ]}
       />

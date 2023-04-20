@@ -162,3 +162,19 @@ export interface EvolutionDetailsProps {
   needs_overworld_rain: boolean;
   trigger: PokemonGroupProps;
 }
+
+export interface StatsDataProps {
+  country: string;
+  hot_dog: number;
+  hot_dogColor: string;
+  burger: number;
+  burgerColor: string;
+  sandwich: number;
+  sandwichColor: string;
+  kebab: number;
+  kebabColor: string;
+  fries: number;
+  friesColor: string;
+  donut: number;
+  donutColor: string;
+}
