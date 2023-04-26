@@ -112,3 +112,41 @@ svg.male {
   font-size: 1.4em;
   color: rgb(0, 191, 255);
 }
+
+.evolution_header {
+  font-weight: 800;
+  font-size: 1.4em;
+  text-align: left;
+}
+
+.evo_image_container {
+  text-align: right;
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQlM45KDD6bQ7uZdPmIo9ptIspxcKcZ4kcuaA&usqp=CAU");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: left;
+  height: 9em;
+  width: 6em;
+  margin-right: 1em;
+}
+
+.evo_image_container img {
+  height: 5.3em;
+  margin-top: 1.6em;
+}
+
+.evolution_top {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2px solid rgb(170, 169, 169);
+}
+.arrow {
+  margin: 3em;
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+}
+
+.evolution_level {
+  text-align: center;
+}

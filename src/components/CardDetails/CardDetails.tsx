@@ -14,6 +14,7 @@ import { Tag } from "antd";
 import { GiMale } from "react-icons/gi";
 import { BiFemaleSign } from "react-icons/bi";
 import { StatsChart } from "../StatsChart/StatsChart";
+import { FaArrowRight } from "react-icons/fa";
 
 export const CardDetails = () => {
   const [pokemonDetails, setPokemonDetails] = useState<
@@ -24,6 +25,7 @@ export const CardDetails = () => {
   >();
   const [eggGroup, setEggGroup] = useState<EggGroupProps | undefined>();
   const [gender, setGender] = useState<PokemonGenderProps | undefined>();
+
   const [evolution, setEvolution] = useState<
     PokemonEvolutionChainProps | undefined
   >();
@@ -64,8 +66,10 @@ export const CardDetails = () => {
     pokemonDetails &&
       apiCall
         .get(`evolution-chain/${pokemonDetails.id}`, {})
-        .then((res) => console.log("here", res.data));
+        .then((res) => setEvolution(res.data));
   }, [pokemonDetails]);
+
+  console.log(evolution);
 
   return (
     <div className="card">
@@ -151,9 +155,7 @@ export const CardDetails = () => {
                               (item, index) =>
                                 `${item.type.name
                                   .charAt(0)
-                                  .toUpperCase()}${item.type.name.slice(
-                                  1
-                                )}${" "}`
+                                  .toUpperCase()}${item.type.name.slice(1)}$`
                             )}
                         </div>
                       </div>
@@ -175,6 +177,34 @@ export const CardDetails = () => {
             children: (
               <div className="evolution_container">
                 <div className="evolution_header">Evolution Chain</div>
+                <div className="evolution_top">
+                  <div className="evo_image_container">
+                    <img
+                      src={
+                        pokemonDetails &&
+                        pokemonDetails.sprites.other.dream_world.front_default
+                      }
+                      alt="evo_image"
+                    />
+                    <div className="evolution_name">{`${
+                      pokemonDetails &&
+                      pokemonDetails.name.charAt(0).toUpperCase()
+                    }${pokemonDetails && pokemonDetails.name.slice(1)}`}</div>
+                  </div>
+                  <div className="arrow">
+                    <FaArrowRight />
+                    <div className="evolution_level">Level</div>
+                  </div>
+                  <div className="evo_image_container">
+                    <img
+                      src={
+                        pokemonDetails &&
+                        pokemonDetails.sprites.other.dream_world.front_default
+                      }
+                      alt="evo_image"
+                    />
+                  </div>
+                </div>
               </div>
             ),
           },
