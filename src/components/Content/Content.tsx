@@ -19,20 +19,14 @@ export const Content = ({ pokeData }: DataProps) => {
     <div className="pokemon_container">
       {pokeData &&
         pokeData.map((item, index) => {
+          const color = item.data.types.map((item, index) => {
+            return item.type.name;
+          });
+          console.log(color);
           return (
             <div
               key={index}
-              className={`card_container ${item.data.types.map(
-                (item, index) => {
-                  return item.type.name === "grass"
-                    ? "green"
-                    : item.type.name === "fire"
-                    ? "red"
-                    : item.type.name === "water"
-                    ? "blue"
-                    : "purple";
-                }
-              )}`}
+              className={`card_container ${color[0]}`}
               onClick={() => navigate(`${item.data.name}`)}
             >
               <div className="image_container">

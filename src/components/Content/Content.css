@@ -100,23 +100,23 @@
   flex-direction: row;
 }
 
-.card_container.green {
+.grass {
   background-color: rgb(126, 216, 194);
 }
 
-.card_container.red {
+.fire {
   background-color: rgba(182, 48, 48, 0.5);
 }
 
-.card_container.blue {
+.water {
   background-color: rgba(61, 148, 199, 0.5);
 }
 
-.card_container.yellow {
+.bug {
   background-color: rgba(218, 176, 8, 0.5);
 }
 
-.card_container.purple {
+.normal {
   background-color: rgba(172, 124, 172, 0.788);
 }
 /* 

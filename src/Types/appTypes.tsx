@@ -139,28 +139,99 @@ export interface PokemonGenderProps {
 }
 
 export interface PokemonEvolutionChainProps {
+  baby_trigger_item: null;
+  chain: PokemonChainProps;
   id: number;
-  chain: PokemonChain;
 }
 
-export interface PokemonChain {
+export interface PokemonChainProps {
   evolution_details: [];
   evolves_to: EvolvesToProps[];
   is_baby: boolean;
-  species: PokemonGroupProps;
+  species: SpeciesProps;
 }
 
 export interface EvolvesToProps {
-  evolution_details: EvolutionDetailsProps;
-  evolves_to: [];
+  evolution_details: EvolutionDetailsProps[];
+  evolves_to: EvolvesToProps[];
   is_baby: boolean;
-  species: PokemonGroupProps;
+  species: SpeciesProps;
 }
 
 export interface EvolutionDetailsProps {
+  gender: null;
+  held_item: null;
+  item: null;
+  known_move: null;
+  known_move_type: null;
+  location: null;
+  min_affection: null;
+  min_beauty: null;
+  min_happiness: null;
   min_level: number;
   needs_overworld_rain: boolean;
-  trigger: PokemonGroupProps;
+  party_species: null;
+  party_type: null;
+  relative_physical_stats: null;
+  time_of_day: string;
+  trade_species: null;
+  trigger: Object;
+  turn_upside_down: boolean;
+}
+
+export interface EvolvesToProps {
+  evolution_details: EvolutionDetailsProps[];
+  evolves_to: EvolvesToProps[];
+  is_baby: boolean;
+  species: SpeciesProps;
+}
+
+export interface SpeciesProps {
+  name: string;
+  url: string;
+}
+
+export interface EvolutionChainProps {
+  url: string;
+}
+
+export interface VarietiesProps {
+  is_default: boolean;
+  pokemon: VarietiesPokemonProps;
+}
+
+export interface VarietiesPokemonProps {
+  name: string;
+  url: string;
+}
+export interface SpeciesDetailsProps {
+  base_happiness: number;
+  capture_rate: number;
+  color: SpeciesProps;
+  egg_groups: SpeciesProps[];
+  evolution_chain: EvolutionChainProps;
+  evolves_from_species: SpeciesProps;
+  flavor_text_entries: [];
+  form_descriptions: [];
+  form_switchable: boolean;
+  gender_rate: number;
+  genera: [];
+  generation: SpeciesProps;
+  growth_rate: SpeciesProps;
+  habitat: SpeciesProps;
+  has_gender_differences: boolean;
+  hatch_counter: number;
+  id: number;
+  is_baby: boolean;
+  is_legendary: boolean;
+  is_mythical: boolean;
+  name: string;
+  names: [];
+  order: number;
+  pal_park_encounters: [];
+  pokedex_numbers: [];
+  shape: SpeciesProps;
+  varieties: VarietiesProps[];
 }
 
 export interface StatsDataProps {

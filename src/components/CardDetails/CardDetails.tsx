@@ -7,6 +7,7 @@ import {
   PokemonEvolutionChainProps,
   PokemonGenderProps,
   SinglePokemonDetailsProps,
+  SpeciesDetailsProps,
 } from "../../Types/appTypes";
 import "../CardDetails/CardDetails.css";
 import { Tabs } from "antd";
@@ -15,11 +16,18 @@ import { GiMale } from "react-icons/gi";
 import { BiFemaleSign } from "react-icons/bi";
 import { StatsChart } from "../StatsChart/StatsChart";
 import { FaArrowRight } from "react-icons/fa";
+import axios from "axios";
 
 export const CardDetails = () => {
   const [pokemonDetails, setPokemonDetails] = useState<
     SinglePokemonDetailsProps | undefined
   >();
+  const [secondpokemonDetails, setSecondPokemonDetails] = useState<
+    SinglePokemonDetailsProps | undefined
+  >();
+
+  const [species, setSpecies] = useState<SpeciesDetailsProps | undefined>();
+
   const [pokemonAbout, setPokemonAbout] = useState<
     PokemonAboutProps | undefined
   >();
@@ -29,16 +37,26 @@ export const CardDetails = () => {
   const [evolution, setEvolution] = useState<
     PokemonEvolutionChainProps | undefined
   >();
+
   const StatData = pokemonDetails && pokemonDetails.stats;
 
   const params = useParams();
 
   useEffect(() => {
-    apiCall
-      .get(`pokemon/${params.id}`, {})
-      .then((res) => setPokemonDetails(res.data))
-      .catch((err) => console.log(err));
+    params &&
+      apiCall
+        .get(`pokemon/${params.id}`, {})
+        .then((res) => setPokemonDetails(res.data))
+        .catch((err) => console.log(err));
   }, [params]);
+
+  const IdSecondEvolution =
+    evolution &&
+    evolution.chain.evolves_to.map((item, index) => {
+      return item.species.url.split("species/")[1].split("/")[0];
+    });
+
+  const IdGender = pokemonDetails && pokemonDetails.id;
 
   useEffect(() => {
     pokemonDetails &&
@@ -58,18 +76,34 @@ export const CardDetails = () => {
   useEffect(() => {
     pokemonDetails &&
       apiCall
-        .get(`gender/${pokemonDetails.id}`, {})
-        .then((res) => setGender(res.data));
+        .get(`pokemon-species/${pokemonDetails.name}`, {})
+        .then((res) => setSpecies(res.data));
   }, [pokemonDetails]);
+
+  const Id =
+    species && species.evolution_chain.url.split("chain/")[1].split("/")[0];
 
   useEffect(() => {
-    pokemonDetails &&
-      apiCall
-        .get(`evolution-chain/${pokemonDetails.id}`, {})
-        .then((res) => setEvolution(res.data));
-  }, [pokemonDetails]);
+    IdGender &&
+      !gender &&
+      apiCall.get(`gender/${IdGender}`, {}).then((res) => setGender(res.data));
+  }, [IdGender, gender]);
 
-  console.log(evolution);
+  useEffect(() => {
+    Id &&
+      apiCall
+        .get(`evolution-chain/${Id}`, {})
+        .then((res) => setEvolution(res.data));
+  }, [Id]);
+
+  useEffect(() => {
+    IdSecondEvolution &&
+      !secondpokemonDetails &&
+      apiCall
+        .get(`pokemon/${IdSecondEvolution}`, {})
+        .then((res) => setSecondPokemonDetails(res.data))
+        .catch((err) => console.log(err));
+  }, [IdSecondEvolution, secondpokemonDetails]);
 
   return (
     <div className="card">
@@ -155,7 +189,9 @@ export const CardDetails = () => {
                               (item, index) =>
                                 `${item.type.name
                                   .charAt(0)
-                                  .toUpperCase()}${item.type.name.slice(1)}$`
+                                  .toUpperCase()}${item.type.name.slice(
+                                  1
+                                )}${" "}`
                             )}
                         </div>
                       </div>
@@ -187,13 +223,60 @@ export const CardDetails = () => {
                       alt="evo_image"
                     />
                     <div className="evolution_name">{`${
+                      species && species.name.charAt(0).toUpperCase()
+                    }${species && species.name.slice(1)}`}</div>
+                  </div>
+                  <div className="arrow">
+                    <FaArrowRight />
+                    <div className="evolution_level">
+                      Lvl.
+                      {`${
+                        evolution &&
+                        evolution.chain.evolves_to.map((item, index) => {
+                          return item.evolution_details.map((item, index) => {
+                            return item.min_level;
+                          });
+                        })
+                      }`}
+                    </div>
+                  </div>
+                  <div className="evo_image_container">
+                    <img
+                      src={
+                        pokemonDetails &&
+                        pokemonDetails.sprites.other.dream_world.front_default
+                      }
+                      alt="evo_image"
+                    />
+                  </div>
+                </div>
+                <div className="evolution_top">
+                  <div className="evo_image_container">
+                    <img
+                      src={
+                        pokemonDetails &&
+                        pokemonDetails.sprites.other.dream_world.front_default
+                      }
+                      alt="evo_image"
+                    />
+                    <div className="evolution_name">{`${
                       pokemonDetails &&
                       pokemonDetails.name.charAt(0).toUpperCase()
                     }${pokemonDetails && pokemonDetails.name.slice(1)}`}</div>
                   </div>
                   <div className="arrow">
                     <FaArrowRight />
-                    <div className="evolution_level">Level</div>
+                    <div className="evolution_level">
+                      Lvl.
+                      {`${
+                        evolution &&
+                        evolution.chain.evolves_to.map((item, index) => {
+                          return item.evolution_details.map((item, index) => {
+                            return item.min_level;
+                          });
+                        })
+                      }`}
+                    </div>
                   </div>
                   <div className="evo_image_container">
                     <img
