@@ -25,6 +25,9 @@ export const CardDetails = () => {
   const [secondpokemonDetails, setSecondPokemonDetails] = useState<
     SinglePokemonDetailsProps | undefined
   >();
+  const [fourthpokemonDetails, setFourthPokemonDetails] = useState<
+    SinglePokemonDetailsProps | undefined
+  >();
 
   const [species, setSpecies] = useState<SpeciesDetailsProps | undefined>();
 
@@ -104,6 +107,23 @@ export const CardDetails = () => {
         .then((res) => setSecondPokemonDetails(res.data))
         .catch((err) => console.log(err));
   }, [IdSecondEvolution, secondpokemonDetails]);
+
+  const IdFourthEvolution =
+    evolution &&
+    evolution.chain.evolves_to.map((item, index) => {
+      return item.evolves_to.map((item, index) => {
+        return item.species.url.split("species/")[1].split("/")[0];
+      });
+    });
+
+  useEffect(() => {
+    IdFourthEvolution &&
+      !fourthpokemonDetails &&
+      apiCall
+        .get(`pokemon/${IdFourthEvolution}`, {})
+        .then((res) => setFourthPokemonDetails(res.data))
+        .catch((err) => console.log(err));
+  }, [IdFourthEvolution, fourthpokemonDetails]);
 
   return (
     <div className="card">
@@ -243,8 +263,9 @@ export const CardDetails = () => {
                   <div className="evo_image_container">
                     <img
                       src={
-                        pokemonDetails &&
-                        pokemonDetails.sprites.other.dream_world.front_default
+                        secondpokemonDetails &&
+                        secondpokemonDetails.sprites.other.dream_world
+                          .front_default
                       }
                       alt="evo_image"
                     />
@@ -254,8 +275,9 @@ export const CardDetails = () => {
                   <div className="evo_image_container">
                     <img
                       src={
-                        pokemonDetails &&
-                        pokemonDetails.sprites.other.dream_world.front_default
+                        secondpokemonDetails &&
+                        secondpokemonDetails.sprites.other.dream_world
+                          .front_default
                       }
                       alt="evo_image"
                     />
@@ -271,8 +293,10 @@ export const CardDetails = () => {
                       {`${
                         evolution &&
                         evolution.chain.evolves_to.map((item, index) => {
-                          return item.evolution_details.map((item, index) => {
-                            return item.min_level;
+                          return item.evolves_to.map((item, index) => {
+                            return item.evolution_details.map((item, index) => {
+                              return item.min_level;
+                            });
                           });
                         })
                       }`}
@@ -281,8 +305,9 @@ export const CardDetails = () => {
                   <div className="evo_image_container">
                     <img
                       src={
-                        pokemonDetails &&
-                        pokemonDetails.sprites.other.dream_world.front_default
+                        fourthpokemonDetails &&
+                        fourthpokemonDetails.sprites.other.dream_world
+                          .front_default
                       }
                       alt="evo_image"
                     />
