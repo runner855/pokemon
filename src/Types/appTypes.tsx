@@ -27,7 +27,7 @@ export interface PokemonResponse {
 }
 
 export interface SinglePokemonDetailsProps {
-  url: any;
+  url: string;
   abilities: PokemonAbilitiesProps[];
   base_experience: number;
   forms: PokemonGroupProps[];

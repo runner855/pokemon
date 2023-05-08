@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 import { Tag } from "antd";
 import "../Content/Content.css";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-import { IoMdReturnLeft } from "react-icons/io";
 import { PokemonResponse } from "../../Types/appTypes";
 
 type DataProps = {
@@ -13,7 +12,6 @@ type DataProps = {
 
 export const Content = ({ pokeData }: DataProps) => {
   const navigate = useNavigate();
-  const params = useParams();
 
   return (
     <div className="pokemon_container">
@@ -22,7 +20,6 @@ export const Content = ({ pokeData }: DataProps) => {
           const color = item.data.types.map((item, index) => {
             return item.type.name;
           });
-          console.log(color);
           return (
             <div
               key={index}

@@ -16,7 +16,6 @@ import { GiMale } from "react-icons/gi";
 import { BiFemaleSign } from "react-icons/bi";
 import { StatsChart } from "../StatsChart/StatsChart";
 import { FaArrowRight } from "react-icons/fa";
-import axios from "axios";
 
 export const CardDetails = () => {
   const [pokemonDetails, setPokemonDetails] = useState<

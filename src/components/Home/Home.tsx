@@ -10,7 +10,6 @@ import { NavBarLinks, PokemonNews } from "../../Utilities/Utility";
 import { NavLink, useNavigate, useParams } from "react-router-dom";
 import apiCall from "../../API/apiCall";
 import { PokemonGroupProps } from "../../Types/appTypes";
-import newsImage1 from "../../Images/regionals-169.jpg";
 
 export const Home = () => {
   const navigate = useNavigate();
