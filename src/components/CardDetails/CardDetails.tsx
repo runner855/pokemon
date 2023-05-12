@@ -16,6 +16,7 @@ import { GiMale } from "react-icons/gi";
 import { BiFemaleSign } from "react-icons/bi";
 import { StatsChart } from "../StatsChart/StatsChart";
 import { FaArrowRight } from "react-icons/fa";
+import { AiOutlineHeart } from "react-icons/ai";
 
 export const CardDetails = () => {
   const [pokemonDetails, setPokemonDetails] = useState<
@@ -139,6 +140,9 @@ export const CardDetails = () => {
                   .toUpperCase()}${item.type.name.slice(1)}${" "}`}</Tag>
               );
             })}
+          <div className="heart">
+            <AiOutlineHeart />
+          </div>
         </div>
 
         <div className="pokemon_image_container">
