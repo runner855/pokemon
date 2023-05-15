@@ -156,3 +156,7 @@ svg.male {
   line-height: 1;
   font-size: 1.4em;
 }
+
+.heart .filledheart {
+  color: red !important;
+}

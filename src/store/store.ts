@@ -1,11 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import fetchPokemons from "../actions/PokemonList";
-import fetchPokemonDetails from "../actions/PokemonDetails";
+import fetchPokemonId from "../actions/PokemonFavorite";
 
 export const store = configureStore({
   reducer: {
-    pokemons: fetchPokemons,
-    pokemonDetails: fetchPokemonDetails,
+    pokemons: fetchPokemonId,
   },
 });
 

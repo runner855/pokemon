@@ -16,8 +16,9 @@ import { GiMale } from "react-icons/gi";
 import { BiFemaleSign } from "react-icons/bi";
 import { StatsChart } from "../StatsChart/StatsChart";
 import { FaArrowRight } from "react-icons/fa";
-import { AiOutlineHeart } from "react-icons/ai";
-
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
+import { useAppDispatch, useAppSelector } from "../../hook/Store";
+import { getPokemonId } from "../../actions/PokemonFavorite";
 export const CardDetails = () => {
   const [pokemonDetails, setPokemonDetails] = useState<
     SinglePokemonDetailsProps | undefined
@@ -41,9 +42,15 @@ export const CardDetails = () => {
     PokemonEvolutionChainProps | undefined
   >();
 
+  const [heartClicked, setHeartClicked] = useState<boolean>(false);
+
   const StatData = pokemonDetails && pokemonDetails.stats;
 
   const params = useParams();
+  const dispatch = useAppDispatch();
+  const PokemonFavorite = useAppSelector((state) => state.pokemons.PokemonId);
+
+  console.log(PokemonFavorite);
 
   useEffect(() => {
     params &&
@@ -125,6 +132,21 @@ export const CardDetails = () => {
         .catch((err) => console.log(err));
   }, [IdFourthEvolution, fourthpokemonDetails]);
 
+  const handleClick = (event: any) => {
+    setHeartClicked((current: any) => !current);
+    pokemonDetails &&
+      PokemonFavorite &&
+      dispatch(getPokemonId([...PokemonFavorite, pokemonDetails.id]));
+    pokemonDetails &&
+      PokemonFavorite.includes(pokemonDetails.id) &&
+      dispatch(
+        getPokemonId(
+          [...PokemonFavorite, pokemonDetails.id] &&
+            PokemonFavorite.filter((id) => id !== pokemonDetails.id)
+        )
+      );
+  };
+
   return (
     <div className="card">
       <div className="header">
@@ -140,8 +162,12 @@ export const CardDetails = () => {
                   .toUpperCase()}${item.type.name.slice(1)}${" "}`}</Tag>
               );
             })}
-          <div className="heart">
-            <AiOutlineHeart />
+          <div className="heart" onClick={handleClick}>
+            {heartClicked ? (
+              <AiFillHeart className="filledheart" />
+            ) : (
+              <AiOutlineHeart />
+            )}
           </div>
         </div>
 
