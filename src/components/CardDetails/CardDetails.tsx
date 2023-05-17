@@ -42,15 +42,13 @@ export const CardDetails = () => {
     PokemonEvolutionChainProps | undefined
   >();
 
-  const [heartClicked, setHeartClicked] = useState<boolean>(false);
+  // const [heartClicked, setHeartClicked] = useState<boolean>(false);
 
   const StatData = pokemonDetails && pokemonDetails.stats;
 
   const params = useParams();
   const dispatch = useAppDispatch();
   const PokemonFavorite = useAppSelector((state) => state.pokemons.PokemonId);
-
-  console.log(PokemonFavorite);
 
   useEffect(() => {
     params &&
@@ -133,7 +131,6 @@ export const CardDetails = () => {
   }, [IdFourthEvolution, fourthpokemonDetails]);
 
   const handleClick = (event: any) => {
-    setHeartClicked((current: any) => !current);
     pokemonDetails &&
       PokemonFavorite &&
       dispatch(getPokemonId([...PokemonFavorite, pokemonDetails.id]));
@@ -163,7 +160,7 @@ export const CardDetails = () => {
               );
             })}
           <div className="heart" onClick={handleClick}>
-            {heartClicked ? (
+            {pokemonDetails && PokemonFavorite.includes(pokemonDetails.id) ? (
               <AiFillHeart className="filledheart" />
             ) : (
               <AiOutlineHeart />

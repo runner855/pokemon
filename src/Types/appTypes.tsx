@@ -5,6 +5,7 @@ export enum AppUrls {
   ITEMS = "/item",
   LOCATIONS = "/location",
   TYPE_CHARTS = "type",
+  FAVORITES = "/favorites",
 }
 
 export enum LanguageEnum {

@@ -1,5 +1,5 @@
 import { AppUrls } from "../Types/appTypes";
-import { TYPE_CHARTS_LABEL } from "../Constants/Dictionary";
+import { FAVORITES_LABEL, TYPE_CHARTS_LABEL } from "../Constants/Dictionary";
 import {
   ABILITIES_LABEL,
   ITEMS_LABEL,
@@ -38,6 +38,11 @@ export const NavBarLinks = [
     link_label: TYPE_CHARTS_LABEL,
     to: AppUrls.TYPE_CHARTS,
     color: "brown",
+  },
+  {
+    link_label: FAVORITES_LABEL,
+    to: AppUrls.FAVORITES,
+    color: "green",
   },
 ];
 

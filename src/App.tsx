@@ -5,6 +5,7 @@ import { NavBar } from "./components/NavBar/NavBar";
 import { MainContainer } from "./components/MainContainer/MainContainer";
 import { Home } from "./components/Home/Home";
 import { CardDetails } from "./components/CardDetails/CardDetails";
+import { Favorites } from "./components/Favorites/Favorites";
 
 export const App = () => {
   return (
@@ -13,6 +14,7 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:page" element={<MainContainer />} />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="/:page/:id" element={<CardDetails />} />
       </Routes>
     </div>

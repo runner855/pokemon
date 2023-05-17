@@ -1,0 +1,103 @@
+.pokemon_img {
+  height: 9em;
+  text-align: center;
+}
+
+.character_image {
+  width: 5em;
+  height: 7em;
+  border-radius: 1em 0em 0em 1em;
+}
+
+.card_container {
+  margin: 1em;
+  display: flex;
+  flex-direction: row;
+  border: solid 1px black;
+  border-radius: 1em;
+  width: 13em;
+  height: 7em;
+}
+
+.card_container:hover {
+  cursor: pointer;
+}
+
+.character_name {
+  font-weight: 800;
+  font-size: 1em;
+  color: #000;
+}
+
+.character_details_content {
+  font-size: 1.2em;
+  line-height: 2.2rem;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  display: block;
+  display: -webkit-box;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  width: 100%;
+}
+
+.character_details {
+  margin: 0.8em;
+}
+
+.alive {
+  color: greenyellow;
+  display: flex;
+  flex-direction: row;
+}
+
+.dead {
+  color: red;
+  display: flex;
+  flex-direction: row;
+}
+
+.alive_text {
+  color: #000;
+  line-height: 1;
+  width: 50%;
+  margin-left: 0.2em;
+}
+
+.dead_text {
+  line-height: 1;
+  color: #000;
+  width: 50%;
+  margin-left: 0.2em;
+}
+
+.type {
+  line-height: 1;
+  margin-left: 0.1em;
+  margin-top: 0.4em;
+  color: #000;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+
+.grass {
+  background-color: rgb(126, 216, 194);
+}
+
+.fire {
+  background-color: rgba(182, 48, 48, 0.5);
+}
+
+.water {
+  background-color: rgba(61, 148, 199, 0.5);
+}
+
+.bug {
+  background-color: rgba(218, 176, 8, 0.5);
+}
+
+.normal {
+  background-color: rgba(172, 124, 172, 0.788);
+}
