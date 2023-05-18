@@ -10,6 +10,7 @@ import {
 } from "../../Types/appTypes";
 import { PokemonListCard } from "../PokemonListCard/PokemonListCard";
 import axios from "axios";
+import { NamesProps } from "../../Types/appTypes";
 
 export const Favorites = () => {
   const dispatch = useAppDispatch();
@@ -32,15 +33,28 @@ export const Favorites = () => {
 
   return (
     <div>
-      <div className="favorites_header">My Favorite Pokemons</div>
-      {favoritesData &&
+      {favoritesData && PokemonFavorite.length > 0 ? (
         favoritesData.map((item, index) => {
           return (
-            <div key={index} className="favorites_container">
+            <div className="favorites_container">
               <PokemonListCard item={item} />
             </div>
           );
-        })}
+        })
+      ) : (
+        <div className="no_favorites">
+          <div className="no_favorites_text">
+            You Don't have any Favorites!!
+          </div>
+          <div className="no_favorites_image">
+            <img
+              src="https://assets1.ignimgs.com/vid/thumbnails/user/2014/05/07/6SaddestPokemonMoments-2_1280.jpg?width=1280"
+              alt="pokemon_crying"
+              className="pokemon_crying"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

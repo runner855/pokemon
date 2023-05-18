@@ -9,3 +9,22 @@
   display: flex;
   justify-content: center;
 }
+
+.no_favorites {
+  text-align: center;
+  margin: 4em;
+}
+.no_favorites_text {
+  font-weight: 700;
+  font-size: 2em;
+  margin-bottom: 1em;
+  color: red;
+  text-decoration: underline;
+}
+
+.pokemon_crying {
+  height: 15em;
+  width: 17em;
+  border: solid rgb(238, 203, 48) 0.2em;
+  border-radius: 10em;
+}
