@@ -1,6 +1,11 @@
 .favorites_header {
   text-align: center;
-  margin: 2em;
+  margin: 1em;
   font-weight: 700;
   font-size: 3em;
+}
+
+.favorites_container {
+  display: flex;
+  justify-content: center;
 }

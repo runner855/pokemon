@@ -14,8 +14,8 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/:page" element={<MainContainer />} />
-        <Route path="/favorites" element={<Favorites />} />
         <Route path="/:page/:id" element={<CardDetails />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </div>
   );

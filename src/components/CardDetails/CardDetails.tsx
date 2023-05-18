@@ -42,8 +42,6 @@ export const CardDetails = () => {
     PokemonEvolutionChainProps | undefined
   >();
 
-  // const [heartClicked, setHeartClicked] = useState<boolean>(false);
-
   const StatData = pokemonDetails && pokemonDetails.stats;
 
   const params = useParams();
