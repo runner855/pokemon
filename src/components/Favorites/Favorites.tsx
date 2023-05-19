@@ -36,7 +36,7 @@ export const Favorites = () => {
       {favoritesData && PokemonFavorite.length > 0 ? (
         favoritesData.map((item, index) => {
           return (
-            <div className="favorites_container">
+            <div className="favorites_container" key={index}>
               <PokemonListCard item={item} />
             </div>
           );

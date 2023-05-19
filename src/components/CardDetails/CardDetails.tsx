@@ -135,10 +135,7 @@ export const CardDetails = () => {
     pokemonDetails &&
       PokemonFavorite.includes(pokemonDetails.id) &&
       dispatch(
-        getPokemonId(
-          [...PokemonFavorite, pokemonDetails.id] &&
-            PokemonFavorite.filter((id) => id !== pokemonDetails.id)
-        )
+        getPokemonId(PokemonFavorite.filter((id) => id !== pokemonDetails.id))
       );
   };
 
