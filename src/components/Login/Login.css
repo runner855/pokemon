@@ -2,7 +2,7 @@
   margin-top: 7em;
 }
 
-html {
+.form_container {
   background-color: black;
   background-image: linear-gradient(rgba(0, 0.6, 0.4, 0.7), rgba(0, 0, 0, 1)),
     url("https://wallpapers.com/images/featured/qmcgnudvclph45ia.jpg");
@@ -10,7 +10,7 @@ html {
   background-size: cover;
   background-position: center;
   width: 100%;
-  height: 910px;
+  height: 100%;
 }
 
 .pokemon_logo_login img {
@@ -31,14 +31,22 @@ html {
 
 @media screen and (max-width: 960px) {
   .form_container {
-    margin-left: 5em;
-    margin-right: 5em;
+    border: 5px solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
   }
 }
 
 @media screen and (min-width: 960px) {
   .form_container {
-    margin-left: 25em;
-    margin-right: 25em;
+    border: 5px solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
   }
 }

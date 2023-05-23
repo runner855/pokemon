@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Form, Input, Button } from "antd";
 import type { FormItemProps } from "antd";
 import "../Login/Login.css";
 import axios from "axios";
+import { UsersDataProps } from "../../Types/appTypes";
+import { useAppDispatch } from "../../hook/Store";
+import { getUserData } from "../../actions/UserData";
 
 const MyFormItemContext = React.createContext<(string | number)[]>([]);
 
@@ -40,17 +43,23 @@ const MyFormItem = ({ name, ...props }: FormItemProps) => {
 };
 
 export const Login = () => {
+  const dispatch = useAppDispatch();
+
+  const [loginData, setLoginData] = useState<UsersDataProps | undefined>();
+  const [userName, setUserName] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+
   const onFinish = (value: object) => {
     console.log(value);
-
-    const handleLogin = (event: any) => {
-      axios
-        .get(
-          ` http://localhost:3004/users?username=<username>&password=<password>`,
-          {}
-        )
-        .then((res) => console.log(res));
-    };
+  };
+  const handleLogin = (event: any) => {
+    axios
+      .get(
+        ` http://localhost:3004/users?username=${userName}&password=${password}`,
+        {}
+      )
+      .then((res) => setLoginData(res.data));
+    dispatch(getUserData(loginData));
   };
 
   return (
@@ -69,31 +78,32 @@ export const Login = () => {
               label={<div className="user_name">User Name</div>}
               required
             >
-              <Input />
+              <Input
+                type="text"
+                name="User Name"
+                placeholder="user name"
+                value={userName}
+                onChange={(event: any) => setUserName(event.target.value)}
+              />
             </MyFormItem>
             <MyFormItem
               name="Password"
               label={<div className="password">Password</div>}
               required
             >
-              <Input />
+              <Input
+                type="text"
+                name="password"
+                placeholder="password"
+                value={password}
+                onChange={(event: any) => setPassword(event.target.value)}
+              />
             </MyFormItem>
           </MyFormItemGroup>
         </MyFormItemGroup>
 
-        <Button
-          type="primary"
-          htmlType="submit"
-          onClick={() =>
-            axios
-              .get(
-                ` http://localhost:3004/users?username=pippo&password=ciao1.`,
-                {}
-              )
-              .then((res) => console.log(res))
-          }
-        >
-          Login
+        <Button type="primary" htmlType="submit" onClick={handleLogin}>
+          Log in
         </Button>
       </Form>
     </div>

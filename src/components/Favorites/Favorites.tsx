@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "../Favorites/Favorites.css";
-import { useAppDispatch, useAppSelector } from "../../hook/Store";
-import { getPokemonId } from "../../actions/PokemonFavorite";
+import { useAppSelector } from "../../hook/Store";
 import apiCall from "../../API/apiCall";
-import {
-  PokemonGroupProps,
-  PokemonResponse,
-  SinglePokemonDetailsProps,
-} from "../../Types/appTypes";
+import { PokemonResponse } from "../../Types/appTypes";
 import { PokemonListCard } from "../PokemonListCard/PokemonListCard";
-import axios from "axios";
-import { NamesProps } from "../../Types/appTypes";
 
 export const Favorites = () => {
-  const dispatch = useAppDispatch();
   const PokemonFavorite = useAppSelector((state) => state.pokemons.PokemonId);
   const [favoritesData, setFavoritesData] = useState<
     PokemonResponse[] | undefined

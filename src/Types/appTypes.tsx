@@ -250,3 +250,15 @@ export interface StatsDataProps {
   donut: number;
   donutColor: string;
 }
+
+export interface UsersDataProps {
+  favorites: [];
+  id: number;
+  password: string;
+  username: string;
+}
+
+export interface UserLoginProps {
+  username: string;
+  password: string;
+}
