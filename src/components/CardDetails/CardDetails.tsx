@@ -19,6 +19,8 @@ import { FaArrowRight } from "react-icons/fa";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useAppDispatch, useAppSelector } from "../../hook/Store";
 import { getPokemonId } from "../../actions/PokemonFavorite";
+import axios from "axios";
+
 export const CardDetails = () => {
   const [pokemonDetails, setPokemonDetails] = useState<
     SinglePokemonDetailsProps | undefined
@@ -47,6 +49,19 @@ export const CardDetails = () => {
   const params = useParams();
   const dispatch = useAppDispatch();
   const PokemonFavorite = useAppSelector((state) => state.pokemons.PokemonId);
+  const UserDetails = useAppSelector((state) => state.users.UserData);
+
+  const UsrId =
+    UserDetails &&
+    Object.entries(UserDetails).map((item, index) => {
+      return item[1].id;
+    });
+
+  const favourites =
+    UserDetails &&
+    Object.entries(UserDetails).map((item, index) => {
+      return item[1].favourites;
+    });
 
   useEffect(() => {
     params &&
@@ -137,6 +152,14 @@ export const CardDetails = () => {
       dispatch(
         getPokemonId(PokemonFavorite.filter((id) => id !== pokemonDetails.id))
       );
+    axios
+      .put(`http://localhost:3004/users/${UsrId}`, {
+        id: UsrId,
+        username: "pippo",
+        password: "ciao1.",
+        favourites: [1, 2, 3],
+      })
+      .then((res) => console.log(res.data));
   };
 
   return (

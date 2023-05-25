@@ -12,9 +12,6 @@ export const App = () => {
   const PokemonFavorite = useAppSelector((state) => state.pokemons.PokemonId);
   const User = useAppSelector((state) => state.users.UserData);
 
-  console.log(PokemonFavorite);
-  console.log(User);
-
   return (
     <div>
       {User && Object.keys(User).length > 0 ? (

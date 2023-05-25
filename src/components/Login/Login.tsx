@@ -4,8 +4,9 @@ import type { FormItemProps } from "antd";
 import "../Login/Login.css";
 import axios from "axios";
 import { UsersDataProps } from "../../Types/appTypes";
-import { useAppDispatch } from "../../hook/Store";
 import { getUserData } from "../../actions/UserData";
+import { useAppDispatch } from "../../hook/Store";
+import { useNavigate } from "react-router-dom";
 
 const MyFormItemContext = React.createContext<(string | number)[]>([]);
 
@@ -43,23 +44,25 @@ const MyFormItem = ({ name, ...props }: FormItemProps) => {
 };
 
 export const Login = () => {
-  const dispatch = useAppDispatch();
-
-  const [loginData, setLoginData] = useState<UsersDataProps | undefined>();
   const [userName, setUserName] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const onFinish = (value: object) => {
     console.log(value);
   };
   const handleLogin = (event: any) => {
-    axios
-      .get(
-        ` http://localhost:3004/users?username=${userName}&password=${password}`,
-        {}
-      )
-      .then((res) => setLoginData(res.data));
-    dispatch(getUserData(loginData));
+    userName &&
+      password &&
+      axios
+        .get(
+          ` http://localhost:3004/users?username=${userName}&password=${password}`,
+          {}
+        )
+        .then((res) => dispatch(getUserData(res.data)));
+    navigate("/");
   };
 
   return (

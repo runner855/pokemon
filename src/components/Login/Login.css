@@ -2,7 +2,8 @@
   margin-top: 7em;
 }
 
-.form_container {
+.form_container,
+.login_page {
   background-color: black;
   background-image: linear-gradient(rgba(0, 0.6, 0.4, 0.7), rgba(0, 0, 0, 1)),
     url("https://wallpapers.com/images/featured/qmcgnudvclph45ia.jpg");
