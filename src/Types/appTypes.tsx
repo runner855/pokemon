@@ -252,7 +252,7 @@ export interface StatsDataProps {
 }
 
 export interface UsersDataProps {
-  favorites: [];
+  favorites: number[] | undefined;
   id: number;
   password: string;
   username: string;

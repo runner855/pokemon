@@ -50,17 +50,21 @@ export const CardDetails = () => {
   const dispatch = useAppDispatch();
   const PokemonFavorite = useAppSelector((state) => state.pokemons.PokemonId);
   const UserDetails = useAppSelector((state) => state.users.UserData);
+  console.log(UserDetails);
+
+  const UserName: string =
+    UserDetails && Object.values(UserDetails)[0].username;
+  const Password: string =
+    UserDetails && Object.values(UserDetails)[0].password;
+  const Favourites: [] =
+    UserDetails && Object.values(UserDetails)[0].favourites;
+  const PokemonFavouriteId =
+    PokemonFavorite && Object.values(PokemonFavorite)[0];
 
   const UsrId =
     UserDetails &&
     Object.entries(UserDetails).map((item, index) => {
       return item[1].id;
-    });
-
-  const favourites =
-    UserDetails &&
-    Object.entries(UserDetails).map((item, index) => {
-      return item[1].favourites;
     });
 
   useEffect(() => {
@@ -152,14 +156,6 @@ export const CardDetails = () => {
       dispatch(
         getPokemonId(PokemonFavorite.filter((id) => id !== pokemonDetails.id))
       );
-    axios
-      .put(`http://localhost:3004/users/${UsrId}`, {
-        id: UsrId,
-        username: "pippo",
-        password: "ciao1.",
-        favourites: [1, 2, 3],
-      })
-      .then((res) => console.log(res.data));
   };
 
   return (
@@ -178,7 +174,9 @@ export const CardDetails = () => {
               );
             })}
           <div className="heart" onClick={handleClick}>
-            {pokemonDetails && PokemonFavorite.includes(pokemonDetails.id) ? (
+            {pokemonDetails &&
+            PokemonFavorite.includes(pokemonDetails.id) &&
+            PokemonFavorite ? (
               <AiFillHeart className="filledheart" />
             ) : (
               <AiOutlineHeart />
