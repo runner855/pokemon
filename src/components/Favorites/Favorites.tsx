@@ -22,8 +22,6 @@ export const Favorites = () => {
   );
   console.log(UserDetails);
 
-  console.log(ArrayFavs);
-
   useEffect(() => {
     apiCall
       .get(`pokemon/`)

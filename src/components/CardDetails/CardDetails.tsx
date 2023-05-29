@@ -19,7 +19,6 @@ import { FaArrowRight } from "react-icons/fa";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useAppDispatch, useAppSelector } from "../../hook/Store";
 import { getPokemonId } from "../../actions/PokemonFavorite";
-import axios from "axios";
 
 export const CardDetails = () => {
   const [pokemonDetails, setPokemonDetails] = useState<
@@ -50,6 +49,7 @@ export const CardDetails = () => {
   const dispatch = useAppDispatch();
   const PokemonFavorite = useAppSelector((state) => state.pokemons.PokemonId);
   const UserDetails = useAppSelector((state) => state.users.UserData);
+
   console.log(UserDetails);
 
   const UserName: string =
@@ -66,6 +66,14 @@ export const CardDetails = () => {
     Object.entries(UserDetails).map((item, index) => {
       return item[1].id;
     });
+
+  const ArrayFavs = useAppSelector(
+    (state) => state.userFavorites.UserFavorites
+  );
+
+  console.log(ArrayFavs);
+
+  console.log("idclickedpokemon", PokemonFavorite);
 
   useEffect(() => {
     params &&
@@ -158,6 +166,8 @@ export const CardDetails = () => {
       );
   };
 
+  console.log(Favourites);
+
   return (
     <div className="card">
       <div className="header">
@@ -173,15 +183,21 @@ export const CardDetails = () => {
                   .toUpperCase()}${item.type.name.slice(1)}${" "}`}</Tag>
               );
             })}
-          <div className="heart" onClick={handleClick}>
-            {pokemonDetails &&
-            PokemonFavorite.includes(pokemonDetails.id) &&
-            PokemonFavorite ? (
+          {pokemonDetails && ArrayFavs.includes(pokemonDetails.id) ? (
+            <div className="heart">
               <AiFillHeart className="filledheart" />
-            ) : (
-              <AiOutlineHeart />
-            )}
-          </div>
+            </div>
+          ) : (
+            <div className="heart" onClick={handleClick}>
+              {pokemonDetails &&
+              PokemonFavorite.includes(pokemonDetails.id) &&
+              PokemonFavorite ? (
+                <AiFillHeart className="filledheart" />
+              ) : (
+                <AiOutlineHeart />
+              )}
+            </div>
+          )}
         </div>
 
         <div className="pokemon_image_container">
